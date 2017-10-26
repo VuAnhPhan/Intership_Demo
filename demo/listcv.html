@@ -1,0 +1,35 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html ng-app="app">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Untitled Document</title>
+<script type="text/javascript" src="js/angular-1.0.0rc3.min.js"></script>
+<script type="text/javascript" src="js/underscore-min.js"></script>
+<script type="text/javascript" src="js/todo.js"></script>
+<link rel="stylesheet" type="text/css" href="todo.css"/>
+</head>
+
+</body>
+<div ng-controller="TodoCtrl">
+
+<h2>Tổng công việc cần làm: {{TotalTodos()}}</h2>
+
+<ul class="unstyled">
+	<li ng-repeat="todo in todos">
+	<input type="checkbox" ng-model="todo.done">
+
+<span class="done-{{todo.done}}">{{todo.text}}</span>
+
+	</li>
+</ul>
+
+<form class="form-horizontal" >
+<input type="text" ng-model="formTodoText" ng-model-instant>
+<button class="btn" ng-click="addTodo()"><i class="icon-plus"></i>Add</button></br>
+
+
+</form>
+<button class="btn-large" ng-click="clearCompleted()"><i class="icon-trash"></i>Xóa mục đã chọn</button>
+</div>
+<body>
+</html>

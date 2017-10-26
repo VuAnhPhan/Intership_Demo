@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    
+    <script type="text/javascript" src="js/underscore-min.js"></script>
+    <script type="text/javascript" src="js/angular.min.js"></script>
+    <script type="text/javascript" src="js/tinh.js"></script>
+    <title>Document</title>
+</head>
+<body>
+    <div ng-app="myApp" >
+        <div ng-controller="MayTinh" >
+     
+            <h2>Ví dụ về ng-model</h2>
+            <input type="text" ng-model="so1"/><br/>
+            <input type="text" ng-model="so2"/><br/>
+            <select ng-model="pheptoan">
+            <option value="+">+</option>
+            <option value="-">-</option>
+            <option value="*">*</option>
+            <option value="/">/</option>
+            </select>
+            <button ng-click="Tinh()" >Xem kết quả</button>
+            {{ketqua}}
+      </div>
+      <div ng-controller="LoginController">
+            <h2>------------<br/>
+             Derective(định nghĩa)+TemplateURL</h2>
+
+             <div ng-formlogin></div>
+
+             <h2>------------<br/>
+             Derective Restrict</h2>
+             <div loginform></div>
+        </div>
+        <div ng-controller="MessageController">
+                <h2>------------<br/>
+                    Directive Talking To Controller</h2>
+                <div message> 
+                    <h6>Hãy hover chuột vào "Content here!"</h6>
+                    Content here!
+                </div>
+        </div>
+      
+    </div>
+</body>
+</html>
