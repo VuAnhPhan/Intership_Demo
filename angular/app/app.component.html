@@ -1,0 +1,59 @@
+<div class="container">
+  
+    <h1>FORM ĐĂNG NHẬP</h1>
+    <form #heroForm="ngForm">
+      <div [hidden]="heroForm.submitted">
+  
+        <div class="form-group">
+          <label for="name">Tên</label>
+          <input id="name" name="name" class="form-control"
+                 required minlength="4" forbiddenName="bob"
+                 [(ngModel)]="hero.name" #name="ngModel" >
+  
+          <div *ngIf="name.invalid && (name.dirty || name.touched)"
+               class="alert alert-danger">
+  
+            <div *ngIf="name.errors.required">
+              Tên bắt buộc.
+            </div>
+            <div *ngIf="name.errors.minlength">
+              Tên ít nhất 4 kí tự nhé.
+            </div>
+            <div *ngIf="name.errors.forbiddenName">
+              Name không được ghi Bob.
+            </div>
+  
+          </div>
+        </div>
+  
+        <div class="form-group">
+          <label for="alterEgo">Tên thường gọi</label>
+          <input id="alterEgo" class="form-control"
+                 name="alterEgo" [(ngModel)]="hero.alterEgo" >
+        </div>
+  
+        <div class="form-group">
+          <label for="power">Chức vụ</label>
+          <select id="power" name="power" class="form-control"
+                  required [(ngModel)]="hero.power" #power="ngModel" >
+            <option *ngFor="let p of powers" [value]="p">{{p}}</option>
+          </select>
+  
+          <div *ngIf="power.errors && power.touched" class="alert alert-danger">
+            <div *ngIf="power.errors.required">Phải chọn chức vụ.</div>
+          </div>
+        </div>
+  
+        <button type="submit" class="btn btn-default"
+                [disabled]="heroForm.invalid">Submit</button>
+        <button type="button" class="btn btn-default"
+                (click)="heroForm.resetForm({})">Reset</button>
+      </div>
+  
+      <div class="submitted-message" *ngIf="heroForm.submitted">
+        <p>YBạn vừa đăng kí, {{ heroForm.value.name }}!</p>
+        <button (click)="heroForm.resetForm({})">Thêm nhân viên mới</button>
+      </div>
+    </form>
+  
+  </div>
