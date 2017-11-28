@@ -1,0 +1,8 @@
+<input #newCV
+(keyup.enter)="addCV(newCV.value)"
+(blur)="addCV(newCV.value); newCV.value='' ">
+
+<button mat-button (click)="addCV(newCV.value)">Add</button>
+
+<ul><li *ngFor="let cv of cvs"><nav><mat-checkbox></mat-checkbox></nav>{{cv}}</li></ul>
+<h3>CỎNG VIỆC</h3>
